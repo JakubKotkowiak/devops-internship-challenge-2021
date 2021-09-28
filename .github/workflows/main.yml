@@ -43,13 +43,13 @@ jobs:
         uses: aws-actions/amazon-ecs-render-task-definition@v1
         with:
           task-definition: .aws/definition.json
-          container-name: devops-challenge
+          container-name: Internship
           image: ${{ steps.build.outputs.image }}
 
       - name: Deploy ECS task definition
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: flask-app
+          service: internship
           cluster: devops-challenge
           wait-for-service-stability: true
